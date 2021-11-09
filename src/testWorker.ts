@@ -1,3 +1,5 @@
+import Graphic from "@arcgis/core/Graphic";
+
 const getData = async (testInput) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -8,6 +10,7 @@ const getData = async (testInput) => {
 
 onmessage = function (e) {
   console.log('Worker starting');
+  const graphic = Graphic.fromJSON({});
   getData(e.data).then((response) => {
     postMessage(response);
   });
